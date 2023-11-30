@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Pins;
 
 use Livewire\Component;
 
+
 class Card extends Component
 {
     public $pin;
@@ -32,5 +33,6 @@ class Card extends Component
 
         $this->pin->saves()->toggle(auth()->user()->id);
         $this->pin->refresh();
+        // Toaster::success('Testing!');
     }
 }

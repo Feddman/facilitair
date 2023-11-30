@@ -1,9 +1,12 @@
-<div class="info p-4 w-300 column min-h-300 mx-auto mt-4" style="background-color: #e5e5f7;
-
-    border-radius: 10px;
-    background-image:  radial-gradient(hotpink 1px, transparent 0.5px), radial-gradient(hotpink 1px, #eee 0.5px);
-    background-size: 20px 20px;
-    background-position: 0 0,10px 10px;" >
+<div class="info p-4 m-4 border-4"
+    style="
+    background: rgba(255, 255, 255, 0.33);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    " >
     <div>
           <h1 class="text-3xl font-bold">Home</h1>
           @if(request()->get('s') || request()->get('t') || request()->get('c'))
@@ -13,7 +16,7 @@
           <div class="relative items-center">
             <div>
                 <form class="overflow-hidden" action="{{route(request()->route()->getName())}}">
-                        <input type="search" name="s" class="bg-gray-100 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink-400" placeholder="Search">
+                        <input type="search" name="s" class="bg-gray-100 appearance-none border-2 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink-400" placeholder="Zoeken op trefwoord">
                         <input type="submit" value="zoek" class="mt-2 p-2 float-right bg-indigo-400">
                 </form>
                 <div>

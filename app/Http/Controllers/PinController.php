@@ -98,11 +98,8 @@ class PinController extends Controller
             $pin->addMedia($file)->toMediaCollection('images');
         }
 
-
-        return response()->json([
-            'message' => 'Pin created successfully',
-            'pin' => $pin
-        ], 200);
+        dd('test');
+        return redirect()->route('welcome');
     }
 
     public function removeImage(Pin $pin, Request $request) {

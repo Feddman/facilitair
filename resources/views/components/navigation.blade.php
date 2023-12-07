@@ -128,6 +128,9 @@
                         @csrf
                     </form>
                     @endauth
+                    @guest
+                    <a href="{{route('login')}}" class="hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
+                    @endguest
                 </div>
             </div>
         </div>

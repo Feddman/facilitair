@@ -7,6 +7,8 @@
         <p>Welkom bij onze inspiratiehub 'Spaces', waar de creatieve inzet van ruimtes in het onderwijs centraal staat.
             Verken inspirerende indelingen, efficiënte planningen en vernieuwende ideeën van collega's door het land.
             Deze hub biedt een unieke kans om te leren van elkaar en samen onze ruimtes optimaal in te zetten.</p>
+            <p><b>Instructie video</b></p>
+            <iframe allowfullscreen src="https://feddmanspace.ams3.digitaloceanspaces.com/Facilitair/instructie_facilitair_app.mp4" frameborder="0"></iframe>
     </div>
 </div>
 @if(count($pins) > 2)

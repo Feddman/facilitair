@@ -167,6 +167,8 @@
                       // Gets triggered when the files have successfully been sent.
                       // Redirect user or notify of success.
 
+                      window.location.href = '/pin/' + response.pin;
+
                     });
                     this.on("errormultiple", function(files, response) {
                       // Gets triggered when there was an error sending the files.

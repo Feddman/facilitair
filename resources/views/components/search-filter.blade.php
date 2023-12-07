@@ -1,6 +1,6 @@
 <div class="info p-4 m-4 border-4"
     style="
-    background: rgba(255, 255, 255, 0.33);
+    background: rgba(0, 0, 0, 0.22);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(5px);

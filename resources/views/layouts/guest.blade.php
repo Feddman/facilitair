@@ -14,12 +14,17 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="font-sans antialiased"
+    <body class="font-sans antialiased min-h-screen"
     style="
-background: #1D976C;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: hsla(44, 100%, 91%, 1);
 
+background: linear-gradient(270deg, hsla(44, 100%, 91%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+
+background: -moz-linear-gradient(270deg, hsla(44, 100%, 91%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+
+background: -webkit-linear-gradient(270deg, hsla(44, 100%, 91%, 1) 0%, hsla(0, 0%, 100%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFF3D3", endColorstr="#FFFFFF", GradientType=1 );
     "
     >
         <x-navigation />

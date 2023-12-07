@@ -5,7 +5,7 @@
 
         <div class="md:w-3/4 md:flex flex-row shadow-inner">
 
-            <form  id="upload-form" class="dropzone w-full" action="{{route('pin.store')}}">
+            <form method="post"  id="upload-form" class="dropzone w-full" action="{{route('pin.store')}}">
                  <h3 class="text-2xl">Nieuwe pin maken</h3>
                  <div id="errors" class="errors hidden">
                     <ul id="errorList" class="list-disc list-inside text-red-500">
@@ -13,7 +13,7 @@
                     </ul>
                  </div>
                 @csrf
-                <div class="md:flex gap-4 justify-between">
+                <div class=" md:flex gap-4 justify-between">
                     <div class="uploadzone md:w-1/4">
                         <div class="p-8 dz-message border-black border-dashed border" data-dz-message><span>Upload jouw afbeeldingen</span></div>
                         <div class="dropzone-previews"></div>
@@ -23,7 +23,7 @@
                             <label class="block text-gray-700 font-medium mb-2" for="title">
                               Titel
                             </label>
-                            <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="title" name="title">
+                            <input class=" cursor-pointer border border-gray-400 p-2 rounded-lg w-full" type="text" id="title" name="title">
                           </div>
 
                         <div class="mb-4 md:w-1/2">
@@ -31,7 +31,7 @@
                               Categorie
                             </label>
                             <select class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="category" name="category">
-                                <option value=""></option>
+                                <option class="cursor-pointer" value=""></option>
                                 @foreach($categories as $category)
                                     <optgroup label="{{$category->name}}">
                                         @foreach($category->subcategories as $sub)
@@ -156,7 +156,7 @@
                     this.on("successmultiple", function(files, response) {
                       // Gets triggered when the files have successfully been sent.
                       // Redirect user or notify of success.
-                      console.log(response);
+                      window.location.href = '/pin/' + response.id;
 
                     });
                     this.on("errormultiple", function(files, response) {

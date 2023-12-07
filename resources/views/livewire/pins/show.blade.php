@@ -1,7 +1,7 @@
-<div class="mt-4 flex justify-center ">
-    <div class="md:w-3/4 md:flex flex-row">
+<div class="mt-4 flex justify-center min-h-screen" >
+    <div class="md:w-3/4  gap-4 md:flex flex-row m-4">
         <div x-data="{
-            activeImage: '{{$pin->getMedia('images')->first()->getUrl()}}',
+            activeImage: '@if($pin->getMedia('images')->first()) {{$pin->getMedia('images')->first()->getUrl()}} @endif',
 
         }" class="md:w-1/2">
             <img class="w-full" :src="activeImage" alt="">
@@ -9,14 +9,21 @@
                 <div class="flex flex-wrap">
                     @foreach($pin->getMedia('images') as $image)
                         <div class="w-1/4 p-2">
-                            <img @click="activeImage = `{{$image->getUrl()}}`" class="w-full" src="{{$image->getUrl()}}" alt="">
+                            <img class="cursor-pointer" @click="activeImage = `{{$image->getUrl()}}`" class="w-full" src="{{$image->getUrl()}}" alt="">
                         </div>
                     @endforeach
 
                 </div>
             </div>
         </div>
-        <div class="md:w-1/2 p-4 shadow-inner">
+        <div style="
+                background: rgba(0, 0, 0, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+        " class="md:w-1/2 p-4 shadow-inner">
           <div class="flex justify-between">
             <h1 class="text-2xl font-bold">{{$pin->title}}</h1>
             <div x-data="{open: false, confirmDelete: false}" @click.away="open = false" class="relative">

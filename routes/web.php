@@ -23,6 +23,7 @@ Route::get('/', [PinController::class, 'index'])->name('welcome');
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/pin/favorites', [PinController::class, 'favorites'])->name('pin.favorites');
+    Route::get('/pins/my/', [PinController::class, 'myPins'])->name('pin.userpins');
     Route::get('/pin/create', [PinController::class, 'create'])->name('pin.create');
     Route::get('/pin', [PinController::class, 'index'])->name('pin.index');
 

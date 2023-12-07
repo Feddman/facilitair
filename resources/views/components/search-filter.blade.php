@@ -21,10 +21,19 @@ border: 1px solid rgba(255, 255, 255, 0.3);
                 </form>
                 <div>
                     <p class="font-bold">Laatste tags:</p>
-                    <div class="tags flex flex-wrap gap-2">
+                    <div class="hidden sm:flex tags flex-wrap gap-2">
+
+                        @foreach(Spatie\Tags\Tag::latest()->take(20)->get() as $tag)
+                            <a href="{{route(request()->route()->getName(), ['t' => $tag->name])}}" class="bg-gray-500 text-white px-2 py-1 rounded-lg mt-2">#{{$tag->name}}</a>
+                        @endforeach
+
+                    </div>
+                    <div class="sm:hidden tags flex flex-wrap gap-1">
+
                         @foreach(Spatie\Tags\Tag::latest()->take(5)->get() as $tag)
                             <a href="{{route(request()->route()->getName(), ['t' => $tag->name])}}" class="bg-gray-500 text-white px-2 py-1 rounded-lg mt-2">#{{$tag->name}}</a>
                         @endforeach
+
                     </div>
                 </div>
                 <div class="font-bold mt-4">

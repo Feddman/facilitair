@@ -120,6 +120,12 @@ class PinController extends Controller
         ]);
     }
 
+    public function myPins() {
+        return view('favorites', [
+            'pins' => auth()->user()->pins
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

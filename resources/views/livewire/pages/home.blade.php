@@ -1,8 +1,8 @@
 <div>
-<div class="grid grid-cols-2">
+<div class="grid md:grid-cols-2">
 
     <x-search-filter />
-    <div class="p-4 m-4">
+    <div class="p-4 m-4 hidden sm:block">
         <img style="width: 200px" class="mb-4" src="{{asset('img/logo.svg')}}" alt="">
         <p>Welkom bij onze inspiratiehub 'Spaces', waar de creatieve inzet van ruimtes in het onderwijs centraal staat.
             Verken inspirerende indelingen, efficiënte planningen en vernieuwende ideeën van collega's door het land.

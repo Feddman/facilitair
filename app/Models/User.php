@@ -52,4 +52,8 @@ class User extends Authenticatable implements HasMedia
     public function favorites() {
         return $this->belongsToMany('App\Models\Pin', 'save_pin');
     }
+
+    public function pins() {
+        return $this->hasMany('App\Models\Pin');
+    }
 }

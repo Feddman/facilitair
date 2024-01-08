@@ -16,9 +16,11 @@
 @else
  <div class="m-4 flex w-2/3 items-start gap-4">
 @endif
-    @forelse($pins as $pin)
-        @livewire('pins.card', ['pin' => $pin], key($pin->id . '-card'))
-    @empty
+    @if($pins->count() > 0)
+        @forelse($pins as $pin)
+            @livewire('pins.card', ['pin' => $pin], key($pin->id . '-card'))
+        @empty
+    @endif
     <div class="bg-indigo-500  text-white p-4 rounded-lg">
       <p class="font-medium">Helaas!</p>
       <p class="text-sm">Geen pins gevonden...</p>

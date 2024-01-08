@@ -20,20 +20,21 @@ class Home extends Component
         if(request()->get('c')) {
             $category = \App\Models\Category::where('id', request()->get('c'))->first();
             // dd($category);
-            $pins = $category->pins;
+            $pins = $category->pins()->paginate($this->perPage);
 
         } else if(request()->get('t')) {
             $pins = \App\Models\Pin::withAnyTags(request()->get('t'))->paginate($this->perPage);
 
         } else if(request()->get('s')) {
-            $pins = \App\Models\Pin::where('title', 'like', '%'.request()->get('s').'%')->paginate($this->perPage);
-            $pinsFromTag = \App\Models\Pin::withAnyTags(request()->get('s'))->paginate($this->perPage);
-            if ($pinsFromTag) {
-                $pins[] = $pinsFromTag;
-            }
+            $searchTerm = request()->get('s');
+            $pins = Pin::where('title', 'like', '%' . $searchTerm . '%')
+                ->orWhereHas('tags', function ($query) use ($searchTerm) {
+                    $query->where('name', 'like', '%' . $searchTerm . '%');
+                })
+                ->with('tags')
+                ->paginate($this->perPage);
 
 
-            $pins = collect($pins)->flatten()->unique('id');
 
         } else {
 

@@ -10,6 +10,7 @@ class Home extends Component
     public $perPage = 10;
     public $testPerPage = 10;
 
+
     public function mount() {
 
     }
@@ -31,7 +32,8 @@ class Home extends Component
                 $pins[] = $pinsFromTag;
             }
 
-            $pins = collect($this->pins)->flatten()->unique('id');
+
+            $pins = collect($pins)->flatten()->unique('id');
 
         } else {
 

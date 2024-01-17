@@ -178,7 +178,11 @@ class PinController extends Controller
         ]);
 
         $pin->categories()->sync($request->category);
-        $pin->syncTags($this->stripTags($request->tags));
+        if($request->tags) {
+            $pin->syncTags($this->stripTags($request->tags));
+        } else {
+            $pin->syncTags([]);
+        }
 
         if($request->file) {
             foreach ($request->file as $file) {

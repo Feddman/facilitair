@@ -134,7 +134,7 @@ class PinController extends Controller
      */
     public function edit(Pin $pin)
     {
-        if(\Auth::user()->id == $pin->user_id || \Auth::user()->role == 'admin') {
+        if(\Auth::user()->id == $pin->user_id || \Auth::user()->role == 'admin' || \Auth::user()->email == 'f.vangils@curio.nl') {
             $pin = Pin::with('categories')->where('id', $pin->id)->first();
             return view('pins.edit', [
                 'pin' => $pin,
@@ -142,7 +142,6 @@ class PinController extends Controller
                 'categories' => \App\Models\Category::where('parent_category_id', null)->with('subcategories')->get(),
             ]);
         }
-
     }
 
     /**
